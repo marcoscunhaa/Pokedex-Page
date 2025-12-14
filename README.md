@@ -1,57 +1,103 @@
-# 🧠 Pokedex App - Angular
+🧠 Pokédex App - Angular
+========================
 
-This is the frontend of the **Pokedex** application, developed with Angular, styled with Tailwind CSS, and connected to an API in Spring Boot. The application consumes data from the PokéAPI through an intermediary API ([Repositório Backend (Spring Boot)](https://github.com/marcoscunhaa/Pokedex-with-Angular/tree/main/backend)) and displays information about Pokémon in a modern and responsive way.
+Frontend da aplicação **Pokédex**, desenvolvido em **Angular**, com estilização em **Tailwind CSS**, consumindo uma **API REST em Spring Boot** que por sua vez integra com a **PokéAPI**. A aplicação apresenta informações detalhadas dos Pokémon de forma moderna, responsiva e performática.
 
----
 
-### 🛠️ Technologies Used
 
-* **Angular CLI**: v17.3.17
+Este frontend pode ser executado de forma **independente em ambiente de desenvolvimento** ou **buildado e servido diretamente pelo backend Spring Boot**, conforme a arquitetura do projeto em produção.
 
-* **Node.js**: v22.12.0
+🔗 **Backend (Spring Boot):** https://github.com/marcoscunhaa/Pokedex-API
 
-* **NPM**: v11.4.1
+🌐 **Aplicação em produção:** [http://137.184.186.231:8080/](http://137.184.186.231:8080/)
+
+* * *
+
+📑 Features
+-----------
+
+- 🔎 Busca de Pokémon por:
+  
+  - ID
+  
+  - Nome
+  
+  - Tipo
+  
+  - Habilidade
+  
+  - Movimento
+  
+  - Região
+
+- 🧬 **Busca avançada**
+  
+  - Combinação de múltiplos filtros (tipos, habilidades, movimentos e regiões)
+
+- 🎨 **Interface moderna e responsiva**
+  
+  - Layout adaptado para desktop e mobile
+  
+  - Estilização com Tailwind CSS
+
+- ⚡ **Performance**
+  
+  - Consumo de API via RxJS
+  
+  - Componentização e boas práticas do Angular
+
+- 🚀 **Deploy integrado**
+  
+  - Frontend buildado e servido via `static/` no backend Spring Boot
+
+* * *
+
+🛠️ Tecnologias Utilizadas
+--------------------------
+
+* **Angular CLI**: 17.3.17
+
+* **Node.js**: 22.12.0
+
+* **NPM**: 11.4.1
+
+* **TypeScript**
 
 * **RxJS**
 
 * **Tailwind CSS**
 
-* **TypeScript**
+* **Docker** (via backend)
 
----
+* **DigitalOcean** (VM em produção)
 
-### 📑 Environment Structure:
+* * *
 
-The application has two environment files, The active environment is imported into the services through:
+📁 Estrutura de Ambientes
+-------------------------
 
-* `environment.ts` (development):
-  
-  ```ts
-  import { environment } from '../../environments/environment'
-  ```
+A aplicação possui dois arquivos de ambiente:
 
-* `environment.prod.ts` (production)
-  
-  ```ts
-  import { environment } from '../../environments/environment.prod';
-  ```
+### 🔧 `environment.ts` (development)
 
----
+    import { environment } from '../../environments/environment';
 
-### 🌐 Endpoints used by environment:
+API apontando para o backend local: http://localhost:8080
 
-* **Development:** points to the local Spring Boot backend (usually `http://localhost:8080`)
+### 🚀 `environment.prod.ts` (production)
 
-* **Production:** points to to the backend hosted on [Railway](https://pokedex-with-springboot-production.up.railway.app/api/pokemons)
+    import { environment } from '../../environments/environment.prod';
 
----
+API apontando para o backend hospedado na VM do DigitalOcean: http://137.184.186.231:8080
 
-👨‍💻Installation and Execution:
-------------------------
+* * *
 
-### ✅ 1. Prerequisites
+👨‍💻 Rodando o Frontend Localmente
+-----------------------------------
 
-Make sure you have installed:
+### ✅ 1. Pré-requisitos
+
+Certifique-se de ter instalado:
 
 * Node.js v22.12.0
 
@@ -59,29 +105,55 @@ Make sure you have installed:
 
 * Angular CLI v17.3.17
 
-### 🔄 2. Clone the repository
+* * *
 
-```bash
-git clone https://github.com/marcoscunhaa/Pokedex-with-Angular
+### 🔄 2. Clone o repositório
+
+```https://github.com/marcoscunhaa/Pokedex-Page
+git clone https://github.com/marcoscunhaa/Pokedex-Page
 cd Pokedex-with-Angular
 ```
 
-### 💾 3. Install dependencies
+* * *
 
-```bash
-npm install
-```
+### 💾 3. Instale as dependências
 
-### 🚀 4. Run in development environment
+    npm install
 
-```bash
-ng serve
-```
+* * *
 
----
+### 🚀 4. Execute em ambiente de desenvolvimento
 
-### 🎯 Application running:
+    ng serve
 
-![pokedex-app](assets/pokedex-application.gif "pokedex-app")
+A aplicação ficará disponível em: http://localhost:4200
+
+* * *
+
+🐳 Produção (Build + Backend)
+-----------------------------
+
+- Em produção, o frontend Angular é **buildado** e copiado para a pasta:
+  
+      /backend/src/main/resources/static
+
+- Dessa forma, toda a aplicação (frontend + backend) é acessada diretamente pelo navegador via Spring Boot:
+
+🌐 **URL pública:**  http://137.184.186.231:8080/
+
+* * *
+
+📌 Observações
+--------------
+
+* O projeto segue boas práticas de componentização e organização de código Angular.
+
+* O frontend foi projetado para funcionar tanto de forma independente quanto integrado ao backend.
+
+* Ideal para estudo de **Full Stack Java + Angular**, Docker e deploy em VPS.
+
+* * *
+
+🚀 Desenvolvido por **Marcos Cunha**
 
 
